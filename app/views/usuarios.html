@@ -1,0 +1,49 @@
+<h1>Usuarios</h1>
+
+<div class="row">
+  <div class="col-md-1">
+    <a ui-sref="usuarios.usuario({usuarioId:0})" class="btn btn-success" ng-click="vm.mostrarPanelUsuario(true)">
+      <span>Nuevo</span>
+    </a>
+  </div>
+  <div class="col-md-11 text-right">
+    <input type="text" ng-model="vm.buscar" placeholder="Buscar">
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="col-md-2"></th>
+        <th class="col-md-1"></th>
+        <th class="col-md-9">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="usuario in vm.usuarios  | filter: vm.buscar" >
+        <td>
+          <a href="" class="btn btn-default">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+          <a href="" class="btn btn-default">
+            <span class="glyphicon glyphicon-remove"></span>
+          </a>
+        </td>
+        <td>
+          <img ng-src="{{usuario.imagenPequena}}" alt="">
+        </td>
+        <td>{{usuario.nombre}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div ng-show="vm.panelusuarioVisible">
+  <div class="overlay"></div>
+  <div class="ventanaModal">
+    <div ui-view class="panelInfo">
+
+    </div>
+  </div>
+</div>

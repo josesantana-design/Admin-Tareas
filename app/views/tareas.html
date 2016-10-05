@@ -1,0 +1,35 @@
+<h1>Tareas</h1>
+
+<hr>
+
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <th></th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th>Asignado a</th>
+      <th class="text-right">Prioridad</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="tarea in vm.tareas">
+        <td>
+          <a href="" class="btn btn-default">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+          <a href="" class="btn btn-default">
+            <span class="glyphicon glyphicon-remove"></span>
+          </a>
+        </td>
+        <td>{{tarea.descripcion}}</td>
+        <td>{{tarea.estado}}</td>
+        <td><img class="padding-right" ng-src="{{tarea.asignadoA.imagenPequena}}" alt="">{{tarea.asignadoA.nombre}}</td>
+        <td class="text-right">
+          <div class="col-md-12 text-center" ng-class="{'prioridad-alta': tarea.prioridad == 'ALTA', 'prioridad-media': tarea.prioridad == 'MEDIA', 'prioridad-baja': tarea.prioridad == 'BAJA'}">
+            {{tarea.prioridad}}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
